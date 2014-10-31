@@ -10,3 +10,6 @@
  */
 angular
   .module('blloonApp', []);
+
+// Constant definition
+angular.module('blloonApp').value('blloonAPI', 'http://turbine-production-eu.herokuapp.com');
