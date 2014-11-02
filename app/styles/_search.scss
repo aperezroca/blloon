@@ -40,6 +40,13 @@
     &:before { @include transform(rotate(45deg));  }
     &:after  { @include transform(rotate(-45deg)); }
   }
+
+  .loading {
+    position: absolute;
+    top: 0;
+    left: 10%;
+    top: 52px;
+  }
 }
 
 #search-results {

@@ -18,3 +18,12 @@ body {
 .container {
   height: 100%;
 }
+
+.loading {
+  display: none;
+  width: 40px;
+  height: 40px;
+  background-image: url(../images/loading.svg);
+
+  &.show { display: block; }
+}

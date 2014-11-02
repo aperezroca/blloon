@@ -11,7 +11,7 @@ angular.module('blloonApp')
   .controller('SearchCtrl', ['$scope', '$http', '$rootScope',
       'blloonAPI', 'book',
       function ($scope, $http, $rootScope, blloonAPI, book) {
-        var searchTimeout, page, loading, moreToLoad,
+        var searchTimeout, page, moreToLoad,
             limit = 20;
 
         // Scope variables
@@ -19,6 +19,7 @@ angular.module('blloonApp')
         // ng-model
         $scope.formData = { q : 'murakami' };
         $scope.books = [];
+        $scope.loading = false;
 
         // Scope functions
         $scope.queryChange = function() {
@@ -28,7 +29,7 @@ angular.module('blloonApp')
         };
 
         $scope.onScroll = function() {
-          if (!loading) {
+          if (!$scope.loading) {
             loadNextPage();
           }
         };
@@ -54,9 +55,9 @@ angular.module('blloonApp')
         };
 
         var loadNextPage = function() {
-          if (loading || !moreToLoad) { return; }
+          if ($scope.loading || !moreToLoad) { return; }
 
-          loading = true;
+          $scope.loading = true;
 
           $http.get(blloonAPI + '/books', {
               params : {
@@ -68,14 +69,14 @@ angular.module('blloonApp')
             .success(function (data) {
               $scope.books = $scope.books.concat(data);
               page++;
-              loading = false;
+              $scope.loading = false;
               moreToLoad = (data.length === limit);
             });
         };
 
         var initPagination = function() {
           page = 1;
-          loading = false;
+          $scope.loading = false;
           moreToLoad = true;
           $scope.books = [];
         };
