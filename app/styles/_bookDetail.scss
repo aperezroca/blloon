@@ -1,0 +1,68 @@
+.book-detail {
+  height: 100%;
+
+  header {
+    position: relative;
+    height: 100%;
+    text-align: center;
+
+    img {
+      margin-top: 100px;
+      border-radius: 2px;
+    }
+
+    h1 {
+      font-size: 42px;
+      padding: 40px 0 20px 0;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
+
+    a {
+      display: inline-block;
+      border: 2px solid white;
+      border-radius: 5px;
+      background-color: transparent;
+      color: white;
+      padding: 15px 30px;
+      font-size: 20px;
+      font-family: Tiempos, serif;
+      margin: 30px;
+      text-decoration: none;
+    }
+
+    &:before, &:after {
+      @include size(20px 3px);
+      position: absolute;
+      content: '';
+      background-color: white;
+      bottom: 16px;
+      left: 50%;
+      border-radius: 6px;
+    }
+
+    &:before {
+      transform: rotate(20deg);
+      margin-left: -17px;
+    }
+
+    &:after {
+      transform: rotate(-20deg);
+    }
+  }
+
+  .description-container {
+    padding: 100px 0;
+    color: #333;
+    background-color: white;
+    font-size: 26px;
+    line-height: 1.4;
+
+    p {
+      width: 650px;
+      margin: auto;
+    }
+  }
+}

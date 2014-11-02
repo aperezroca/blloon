@@ -2,8 +2,19 @@
 @import "bourbon";
 @import "fonts";
 @import "search";
+@import "bookDetail";
+
+html {
+  height: 100%;
+}
 
 body {
+  height: 100%;
   background-color: #181818;
   font-family: Tiempos, serif;
+  color: white;
+}
+
+.container {
+  height: 100%;
 }

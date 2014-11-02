@@ -20,9 +20,7 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
-
-      <div ng-include="'views/search.html'" ng-controller="SearchCtrl"></div>
+    <div class="container" ng-view>
 
     </div>
 
@@ -48,6 +46,7 @@
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
     <!-- endbower -->
     <script src="scripts/vendor/jquery.visible.js"></script>
     <!-- endbuild -->
@@ -56,6 +55,8 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/directives/infiniteList.js"></script>
     <script src="scripts/controllers/search.js"></script>
+    <script src="scripts/controllers/bookDetail.js"></script>
+    <script src="scripts/factories/book.js"></script>
     <!-- endbuild -->
   </body>
 </html>

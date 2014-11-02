@@ -1,4 +1,1 @@
-@font-face {
-  font-family: Tiempos;
-  src: url(../fonts/TiemposTextWeb-Regular.woff);
-}
+@include font-face(Tiempos, '../fonts/TiemposTextWeb-Regular');

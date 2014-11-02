@@ -8,8 +8,9 @@
  * Controller for the search page
  */
 angular.module('blloonApp')
-  .controller('SearchCtrl', ['$scope', '$http', 'blloonAPI',
-      function ($scope, $http, blloonAPI) {
+  .controller('SearchCtrl', ['$scope', '$http', '$rootScope',
+      'blloonAPI', 'book',
+      function ($scope, $http, $rootScope, blloonAPI, book) {
         var searchTimeout, page, loading, moreToLoad,
             limit = 20;
 
@@ -36,6 +37,15 @@ angular.module('blloonApp')
           initPagination();
           $scope.formData.q = '';
         };
+
+        // Scope events
+        $rootScope.$on('$locationChangeStart', function(event, next, current) {
+          var udid = next.split('/').pop();
+
+          book.data = $.grep($scope.books, function(e) {
+            return e.udid === udid;
+          })[0];
+        });
 
         // Private functions
         var search = function() {

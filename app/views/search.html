@@ -3,5 +3,5 @@
   <span class="input-clear ng-class: {hide: formData.q === ''}" ng-click="clear()"></span>
 </div>
 <ul id="search-results" class="infinite-list" on-scroll="onScroll">
-  <li ng-repeat="book in books"><img ng-src="{{book.small_cover_image_url}}"/></li>
+  <li ng-repeat="book in books"><a href="#/books/{{book.udid}}"><img ng-src="{{book.small_cover_image_url}}"/></a></li>
 </ul>
