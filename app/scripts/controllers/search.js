@@ -10,11 +10,7 @@
 angular.module('blloonApp')
   .controller('SearchCtrl', ['$scope', '$http', 'blloonAPI',
       function ($scope, $http, blloonAPI) {
-        var searchTimeout,
-            page = 1,
-            loading = false,
-            limit = 20,
-            moreToLoad = true;
+        var searchTimeout, page, loading, limit, moreToLoad;
 
         // Scope variables
         // The var q is inside an object so that it can be updated using
@@ -35,12 +31,14 @@ angular.module('blloonApp')
           }
         };
 
+        $scope.clear = function() {
+          initPagination();
+          $scope.formData.q = '';
+        };
+
         // Private functions
         var search = function() {
-          page = 1;
-          loading = false;
-          moreToLoad = true;
-          $scope.books = [];
+          initPagination();
           loadNextPage();
         };
 
@@ -64,6 +62,14 @@ angular.module('blloonApp')
             });
         };
 
+        var initPagination = function() {
+          page = 1;
+          loading = false;
+          moreToLoad = true;
+          $scope.books = [];
+        };
+
+        initPagination();
         search();
       }
   ]);

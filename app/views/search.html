@@ -1,4 +1,7 @@
-<input id="search-box" placeholder="Try 'Murakami' or 'love'" type="text" ng-model="formData.q" ng-change="queryChange()"/>
+<div class="search-box-container">
+  <input id="search-box" placeholder="Try 'Murakami' or 'love'" type="text" ng-model="formData.q" ng-change="queryChange()" autofocus/>
+  <span class="input-clear ng-class: {hide: formData.q === ''}" ng-click="clear()"></span>
+</div>
 <ul id="search-results" class="infinite-list" on-scroll="onScroll">
   <li ng-repeat="book in books"><img ng-src="{{book.small_cover_image_url}}"/></li>
 </ul>

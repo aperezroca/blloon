@@ -18,8 +18,31 @@
   }
 }
 
-#search-results {
+.search-box-container {
+  .input-clear {
+    @include size(40px 40px);
+    position: absolute;
+    right: 10%;
+    top: 52px;
+    color: white;
 
+    &.hide { display: none; }
+
+    &:before, &:after {
+      @include size(1px 40px);
+      position: absolute;
+      content: '';
+      display: block;
+      background-color: white;
+      left: 18px;
+    }
+
+    &:before { @include transform(rotate(45deg));  }
+    &:after  { @include transform(rotate(-45deg)); }
+  }
+}
+
+#search-results {
   li {
     @include size(158px 236px);
     display: inline-block;
@@ -28,5 +51,4 @@
       width: 100%;
     }
   }
-
 }
