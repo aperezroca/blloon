@@ -23,8 +23,9 @@ angular.module('blloonApp')
 
         // Scope functions
         $scope.queryChange = function() {
-          clearTimeout(searchTimeout);
+          if ($scope.formData.q === '') { return; }
 
+          clearTimeout(searchTimeout);
           searchTimeout = setTimeout(search, 500);
         };
 
@@ -81,7 +82,6 @@ angular.module('blloonApp')
           $scope.books = [];
         };
 
-        initPagination();
         search();
       }
   ]);
