@@ -10,7 +10,8 @@
 angular.module('blloonApp')
   .controller('SearchCtrl', ['$scope', '$http', 'blloonAPI',
       function ($scope, $http, blloonAPI) {
-        var searchTimeout, page, loading, limit, moreToLoad;
+        var searchTimeout, page, loading, moreToLoad,
+            limit = 20;
 
         // Scope variables
         // The var q is inside an object so that it can be updated using
