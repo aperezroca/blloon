@@ -1,2 +1,9 @@
 @import "reset";
 @import "bourbon";
+@import "fonts";
+@import "search";
+
+body {
+  background-color: #181818;
+  font-family: Tiempos, serif;
+}

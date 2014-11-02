@@ -1,0 +1,32 @@
+#search-box {
+  width: 80%;
+  display: block;
+  margin: auto;
+  border: none;
+  border-bottom: 1px solid #999;
+  background-color: transparent;
+  margin: 40px auto;
+  outline: none;
+  color: white;
+  font-size: 40px;
+  font-family: Tiempos, serif;
+  text-align: center;
+  padding: 8px;
+
+  @include placeholder {
+    color: #555;
+  }
+}
+
+#search-results {
+
+  li {
+    @include size(158px 236px);
+    display: inline-block;
+
+    img {
+      width: 100%;
+    }
+  }
+
+}
