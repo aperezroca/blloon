@@ -18,7 +18,6 @@ angular.module('blloonApp')
 
         // Scope functions
         $scope.renderHtml = function(htmlCode) {
-          console.log(htmlCode);
           return $sce.trustAsHtml(htmlCode);
         };
 
