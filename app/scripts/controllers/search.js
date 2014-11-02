@@ -69,17 +69,17 @@ angular.module('blloonApp')
             })
             .success(function (data) {
               $scope.books = $scope.books.concat(data);
-              page++;
               $scope.loading = false;
+              page++;
               moreToLoad = (data.length === limit);
             });
         };
 
         var initPagination = function() {
-          page = 1;
-          $scope.loading = false;
-          moreToLoad = true;
           $scope.books = [];
+          $scope.loading = false;
+          page = 1;
+          moreToLoad = true;
         };
 
         search();
