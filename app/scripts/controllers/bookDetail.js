@@ -33,7 +33,7 @@ angular.module('blloonApp')
             .then(function(data) {
               $scope.book = data.data;
             });
-        }
+        };
 
         // Check if the book has been passed by the previous route,
         // otherwise fetch it from the API
