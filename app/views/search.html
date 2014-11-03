@@ -6,6 +6,6 @@
   </div>
   <p class="empty ng-class: {show: noResults === true}">We couldn't find anything for '{{formData.q}}'</p>
   <ul id="search-results" class="infinite-list" on-scroll="onScroll">
-    <li ng-repeat="book in books"><a href="#/books/{{book.udid}}"><img ng-src="{{book.small_cover_image_url}}"/></a></li>
+    <li ng-repeat="book in books"><a href="#/books/{{book.udid}}"><span>{{book.title}}</span><img ng-src="{{book.small_cover_image_url}}"/></a></li>
   </ul>
 </section>
