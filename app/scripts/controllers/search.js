@@ -17,7 +17,7 @@ angular.module('blloonApp')
         // Scope variables
         // The var q is inside an object so that it can be updated using
         // ng-model
-        $scope.formData = { q : 'murakami' };
+        $scope.formData = { q : '' };
         $scope.books = [];
         $scope.loading = false;
 
@@ -81,7 +81,5 @@ angular.module('blloonApp')
           page = 1;
           moreToLoad = true;
         };
-
-        search();
       }
   ]);
