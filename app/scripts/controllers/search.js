@@ -21,6 +21,7 @@ angular.module('blloonApp')
         $scope.books = [];
         $scope.loading = false;
         $scope.noResults = false;
+        $scope.placeholder = '';
 
         // Scope functions
         $scope.queryChange = function() {
@@ -92,5 +93,16 @@ angular.module('blloonApp')
           page = 1;
           moreToLoad = true;
         };
+
+        var generatePlaceholder = function() {
+          var authors = ['Murakami', 'Tolkien', 'Kyle Simpson', 'Lorca'],
+              topics = ['love', 'drama', 'comic', 'sci-fi', 'crime'],
+              authorRandom = Math.floor(Math.random()*(authors.length)),
+              topicRandom = Math.floor(Math.random()*(topics.length)),
+              author = authors[authorRandom],
+              topic = topics[topicRandom];
+
+          $scope.placeholder = "Try '" + author + "' or '" + topic + "'";
+        }();
       }
   ]);
