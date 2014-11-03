@@ -1,3 +1,4 @@
+@import "variables";
 @import "reset";
 @import "bourbon";
 @import "fonts";
@@ -17,19 +18,33 @@ body {
   > header {
     padding: 20px;
 
-    img { height: 50px; }
+    img {
+      height: 50px;
+
+      @media #{$media-query-phone} {
+        height: 40px;
+      }
+    }
   }
 }
 
 .container {
-  height: calc(100% - 93px);
+  height: calc(100% - #{$header-height});
+
+  @media #{$media-query-phone} {
+    height: calc(100% - #{$header-height-phone});
+  }
 }
 
 .loading {
+  @include size(40px);
   display: none;
-  width: 40px;
-  height: 40px;
   background-image: url(../images/loading.svg);
 
   &.show { display: block; }
+
+  @media #{$media-query-phone} {
+    @include size(30px);
+    background-size: 30px;
+  }
 }

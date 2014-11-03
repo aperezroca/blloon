@@ -9,15 +9,31 @@
     img {
       margin-top: 20px;
       border-radius: 2px;
+      width: 180px;
+
+      @media #{$media-query-phone} {
+        margin-top: 10px;
+        width: 130px;
+      }
     }
 
     h1 {
-      font-size: 42px;
-      padding: 40px 0 20px 0;
+      font-size: 32px;
+      padding: 40px 10px 20px 10px;
+      line-height: 1.4;
+
+      @media #{$media-query-phone} {
+        font-size: 26px;
+        padding: 20px;
+      }
     }
 
     h2 {
       font-size: 24px;
+
+      @media #{$media-query-phone} {
+        font-size: 20px;
+      }
     }
 
     a {
@@ -63,6 +79,11 @@
     p {
       width: 650px;
       margin: auto;
+
+      @media #{$media-query-phone} {
+        width: 80%;
+        font-size: 16px;
+      }
     }
   }
 }
