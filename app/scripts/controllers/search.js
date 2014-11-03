@@ -20,13 +20,17 @@ angular.module('blloonApp')
         $scope.formData = { q : '' };
         $scope.books = [];
         $scope.loading = false;
+        $scope.noResults = false;
 
         // Scope functions
         $scope.queryChange = function() {
-          if ($scope.formData.q === '') { return; }
-
-          clearTimeout(searchTimeout);
-          searchTimeout = setTimeout(search, 500);
+          $scope.noResults = false;
+          if ($scope.formData.q === '') {
+            $scope.clear();
+          } else {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(search, 500);
+          }
         };
 
         $scope.onScroll = function() {
@@ -68,6 +72,12 @@ angular.module('blloonApp')
               }
             })
             .success(function (data) {
+              if ((data.length === 0) && (page === 1)) {
+                $scope.noResults = true;
+              } else {
+                $scope.noResults = false;
+              }
+
               $scope.books = $scope.books.concat(data);
               $scope.loading = false;
               page++;
@@ -78,6 +88,7 @@ angular.module('blloonApp')
         var initPagination = function() {
           $scope.books = [];
           $scope.loading = false;
+          $scope.noResults = false;
           page = 1;
           moreToLoad = true;
         };
