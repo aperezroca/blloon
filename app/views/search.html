@@ -1,8 +1,11 @@
-<div class="search-box-container">
-  <input id="search-box" placeholder="Try 'Murakami' or 'love'" type="text" ng-model="formData.q" ng-change="queryChange()" autofocus/>
-  <span class="input-clear ng-class: {hide: formData.q === ''}" ng-click="clear()"></span>
-  <span class="loading ng-class: {show: loading === true}" src="images/loading.svg" />
-</div>
-<ul id="search-results" class="infinite-list" on-scroll="onScroll">
-  <li ng-repeat="book in books"><a href="#/books/{{book.udid}}"><img ng-src="{{book.small_cover_image_url}}"/></a></li>
-</ul>
+<section class="search">
+  <div class="search-box-container">
+    <input id="search-box" placeholder="{{placeholder}}" type="text" ng-model="formData.q" ng-change="queryChange()" autofocus/>
+    <span class="input-clear ng-class: {hide: formData.q === ''}" ng-click="clear()"></span>
+    <span class="loading-animation ng-class: {show: loading === true}" src="images/loading.svg" />
+  </div>
+  <p class="empty ng-class: {show: noResults === true}">We couldn't find anything for '{{formData.q}}'</p>
+  <ul id="search-results" class="infinite-list" on-scroll="onScroll">
+    <li ng-repeat="book in books"><a href="#/books/{{book.udid}}"><img ng-src="{{book.small_cover_image_url}}"/></a></li>
+  </ul>
+</section>

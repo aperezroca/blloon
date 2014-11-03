@@ -21,55 +21,6 @@
   }
 }
 
-.search-box-container {
-  position: relative;
-
-  .input-clear {
-    @include size(40px 40px);
-    position: absolute;
-    right: 10%;
-    top: 16px;
-    color: white;
-
-    &.hide { display: none; }
-
-    &:before, &:after {
-      @include size(1px 40px);
-      position: absolute;
-      content: '';
-      display: block;
-      background-color: white;
-      left: 18px;
-
-      @media #{$media-query-phone} {
-        @include size(1px 30px);
-        top: 0;
-        right: 5%;
-      }
-    }
-
-    &:before { @include transform(rotate(45deg));  }
-    &:after  { @include transform(rotate(-45deg)); }
-
-    @media #{$media-query-phone} {
-      top: 4px;
-      right: 5%;
-    }
-  }
-
-  .loading {
-    position: absolute;
-    top: 0;
-    left: 10%;
-    top: 16px;
-
-    @media #{$media-query-phone} {
-      top: 4px;
-      left: 7%;
-    }
-  }
-}
-
 #search-results {
   text-align: center;
   width: 70%;
@@ -92,5 +43,65 @@
 
   @media #{$media-query-phone} {
     width: 90%;
+  }
+}
+
+section.search {
+  .search-box-container {
+    position: relative;
+
+    .input-clear {
+      @include size(40px 40px);
+      position: absolute;
+      right: 10%;
+      top: 16px;
+      color: white;
+
+      &.hide { display: none; }
+
+      &:before, &:after {
+        @include size(1px 40px);
+        position: absolute;
+        content: '';
+        display: block;
+        background-color: white;
+        left: 18px;
+
+        @media #{$media-query-phone} {
+          @include size(1px 30px);
+          top: 0;
+          right: 5%;
+        }
+      }
+
+      &:before { @include transform(rotate(45deg));  }
+      &:after  { @include transform(rotate(-45deg)); }
+
+      @media #{$media-query-phone} {
+        top: 4px;
+        right: 5%;
+      }
+    }
+
+    .loading-animation {
+      position: absolute;
+      top: 0;
+      left: 10%;
+      top: 16px;
+
+      @media #{$media-query-phone} {
+        top: 4px;
+        left: 7%;
+      }
+    }
+  }
+
+  .empty {
+    display: none;
+    text-align: center;
+    padding: 0 20px;
+    line-height: 1.4;
+
+    &.show { display: block; }
   }
 }
