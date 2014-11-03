@@ -41,7 +41,7 @@ angular.module('blloonApp')
         };
 
         // Scope events
-        $rootScope.$on('$locationChangeStart', function(event, next, current) {
+        $rootScope.$on('$locationChangeStart', function(event, next) {
           var udid = next.split('/').pop();
 
           book.data = $.grep($scope.books, function(e) {
