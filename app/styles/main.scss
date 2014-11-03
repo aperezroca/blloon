@@ -36,7 +36,7 @@ body {
   }
 }
 
-.loading {
+.loading-animation {
   @include size(40px);
   display: none;
   background-image: url(../images/loading.svg);
