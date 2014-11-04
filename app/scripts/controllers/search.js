@@ -9,8 +9,8 @@
  */
 angular.module('blloonApp')
   .controller('SearchCtrl', ['$scope', '$http', '$rootScope',
-      'blloonAPI', 'book',
-      function ($scope, $http, $rootScope, blloonAPI, book) {
+      'blloonAPI', 'book', 'searchState',
+      function ($scope, $http, $rootScope, blloonAPI, book, searchState) {
         var searchTimeout, page, moreToLoad,
             limit = 20;
 
@@ -52,9 +52,16 @@ angular.module('blloonApp')
           book.data = $.grep($scope.books, function(e) {
             return e.udid === udid;
           })[0];
+
+          saveState();
         });
 
         // Private functions
+        var init = function() {
+          generatePlaceholder();
+          recoverState();
+        };
+
         var search = function() {
           initPagination();
           loadNextPage();
@@ -94,6 +101,24 @@ angular.module('blloonApp')
           moreToLoad = true;
         };
 
+        var saveState = function() {
+          searchState.formData = $scope.formData;
+          searchState.books = $scope.books;
+          searchState.loading = $scope.loading;
+          searchState.noResults = $scope.noResults;
+          searchState.placeholder = $scope.placeholder;
+        };
+
+        var recoverState = function() {
+          if (Object.keys(searchState).length !== 0) {
+            $scope.formData = searchState.formData;
+            $scope.books = searchState.books;
+            $scope.loading = searchState.loading;
+            $scope.noResults = searchState.noResults;
+            $scope.placeholder = searchState.placeholder;
+          }
+        };
+
         var generatePlaceholder = function() {
           var authors = ['Murakami', 'Tolkien', 'Kyle Simpson', 'Lorca'],
               topics = ['love', 'drama', 'comic', 'sci-fi', 'crime'],
@@ -103,6 +128,8 @@ angular.module('blloonApp')
               topic = topics[topicRandom];
 
           $scope.placeholder = "Try '" + author + "' or '" + topic + "'";
-        }();
+        };
+
+        init();
       }
   ]);
