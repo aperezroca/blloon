@@ -1,35 +1,36 @@
-.book-detail {
+section.book-detail {
   height: 100%;
 
   header {
     position: relative;
     height: 100%;
     text-align: center;
+    overflow: hidden;
 
     img {
       margin-top: 20px;
       border-radius: 2px;
-      width: 180px;
+      width: 60%;
 
       @media #{$media-query-phone} {
         margin-top: 10px;
-        width: 130px;
       }
     }
 
     h1 {
-      font-size: 32px;
-      padding: 40px 10px 20px 10px;
+      font-size: 36px;
+      padding: 20px 10px 10px 10px;
       line-height: 1.4;
 
       @media #{$media-query-phone} {
-        font-size: 26px;
+        font-size: 28px;
         padding: 20px;
       }
     }
 
     h2 {
       font-size: 24px;
+      padding-bottom: 40px;
 
       @media #{$media-query-phone} {
         font-size: 20px;

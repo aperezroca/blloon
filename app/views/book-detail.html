@@ -1,9 +1,8 @@
 <section class="book-detail">
   <header>
-    <img src="{{book.small_cover_image_url}}" />
     <h1>{{book.title}}</h1>
     <h2>{{book.author}}</h2>
-    <a ng-click="goToDescription()">Read more</a>
+    <img src="{{book.large_cover_image_url}}" />
   </header>
   <div class="description-container" id="book-description">
     <p ng-bind-html="renderHtml(book.description)"></p>
