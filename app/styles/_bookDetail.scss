@@ -13,6 +13,7 @@ section.book-detail {
       width: 60%;
 
       @media #{$media-query-phone} {
+        width: 80%;
         margin-top: 10px;
       }
     }
