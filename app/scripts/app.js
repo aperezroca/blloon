@@ -25,5 +25,5 @@ angular.module('blloonApp').config(['$routeProvider',
       .when('/books/:udid', {
         templateUrl: 'views/book-detail.html',
         controller: 'BookDetailCtrl'
-      })
-  }])
+      });
+  }]);

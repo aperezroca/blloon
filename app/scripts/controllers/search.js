@@ -127,7 +127,7 @@ angular.module('blloonApp')
               author = authors[authorRandom],
               topic = topics[topicRandom];
 
-          $scope.placeholder = "Try '" + author + "' or '" + topic + "'";
+          $scope.placeholder = 'Try \'' + author + '\' or \'' + topic + '\'';
         };
 
         init();
