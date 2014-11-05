@@ -8,9 +8,9 @@
  * Controller for the search page
  */
 angular.module('blloonApp')
-  .controller('SearchCtrl', ['$scope', '$http', '$rootScope',
+  .controller('SearchCtrl', ['$scope', '$http', '$rootScope', '$timeout',
       'blloonAPI', 'book', 'searchState',
-      function ($scope, $http, $rootScope, blloonAPI, book, searchState) {
+      function ($scope, $http, $rootScope, $timeout, blloonAPI, book, searchState) {
         var searchTimeout, page, moreToLoad,
             limit = 20;
 
@@ -29,8 +29,8 @@ angular.module('blloonApp')
           if ($scope.formData.q === '') {
             $scope.clear();
           } else {
-            clearTimeout(searchTimeout);
-            searchTimeout = setTimeout(search, 500);
+            $timeout.cancel(searchTimeout);
+            searchTimeout = $timeout(search, 500);
           }
         };
 
