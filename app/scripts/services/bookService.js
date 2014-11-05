@@ -12,16 +12,12 @@ angular.module('blloonApp')
       function ($http, $q, blloonAPI) {
         this.search = function(params, callback) {
           return $http.get(blloonAPI + '/books', { params: params })
-            .success(function (data) {
-              callback(data);
-            });
+            .success(callback);
         };
 
         this.getById = function(id, callback) {
           return $http.get(blloonAPI + '/books/' + id)
-            .success(function (data) {
-              callback(data);
-            });
+            .success(callback);
         };
       }
   ]);

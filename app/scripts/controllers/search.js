@@ -77,12 +77,7 @@ angular.module('blloonApp')
             'q': $scope.formData.q,
             'per_page': limit
           }, function(books) {
-            if ((books.length === 0) && (page === 1)) {
-              $scope.noResults = true;
-            } else {
-              $scope.noResults = false;
-            }
-
+            $scope.noResults = ((books.length === 0) && (page === 1));
             $scope.books = $scope.books.concat(books);
             $scope.loading = false;
             page++;
