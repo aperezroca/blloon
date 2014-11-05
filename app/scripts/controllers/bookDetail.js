@@ -21,12 +21,6 @@ angular.module('blloonApp')
           return $sce.trustAsHtml(htmlCode);
         };
 
-        $scope.goToDescription = function() {
-          $location.hash('book-description');
-
-          $anchorScroll();
-        };
-
         // Private functions
         var loadBook = function() {
           $http.get(blloonAPI + '/books/' + $routeParams.udid)
