@@ -8,10 +8,9 @@
  * Controller for the page of the detail of a book
  */
 angular.module('blloonApp')
-  .controller('BookDetailCtrl', ['$scope', '$http', '$routeParams', '$sce',
-      '$location', '$anchorScroll', 'blloonAPI', 'book',
-      function ($scope, $http, $routeParams, $sce, $location,
-          $anchorScroll, blloonAPI, book) {
+  .controller('BookDetailCtrl', ['$scope', '$routeParams', '$sce',
+      '$location', 'bookService', 'book',
+      function ($scope, $routeParams, $sce, $location, bookService, book) {
 
         // Scope variables
         $scope.book = null;
@@ -23,10 +22,9 @@ angular.module('blloonApp')
 
         // Private functions
         var loadBook = function() {
-          $http.get(blloonAPI + '/books/' + $routeParams.udid)
-            .then(function(data) {
-              $scope.book = data.data;
-            });
+          bookService.getById($routeParams.udid, function(book) {
+            $scope.book = book;
+          });
         };
 
         // Check if the book has been passed by the previous route,

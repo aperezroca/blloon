@@ -8,9 +8,9 @@
  * Controller for the search page
  */
 angular.module('blloonApp')
-  .controller('SearchCtrl', ['$scope', '$http', '$rootScope', '$timeout',
-      'blloonAPI', 'book', 'searchState',
-      function ($scope, $http, $rootScope, $timeout, blloonAPI, book, searchState) {
+  .controller('SearchCtrl', ['$scope', '$rootScope', '$timeout', 'book',
+      'searchState', 'bookService',
+      function ($scope, $rootScope, $timeout, book, searchState, bookService) {
         var searchTimeout, page, moreToLoad,
             limit = 20;
 
@@ -72,25 +72,22 @@ angular.module('blloonApp')
 
           $scope.loading = true;
 
-          $http.get(blloonAPI + '/books', {
-              params : {
-                'page' : page,
-                'q' : $scope.formData.q,
-                'per_page' : limit
-              }
-            })
-            .success(function (data) {
-              if ((data.length === 0) && (page === 1)) {
-                $scope.noResults = true;
-              } else {
-                $scope.noResults = false;
-              }
+          bookService.search({
+            'page': page,
+            'q': $scope.formData.q,
+            'per_page': limit
+          }, function(books) {
+            if ((books.length === 0) && (page === 1)) {
+              $scope.noResults = true;
+            } else {
+              $scope.noResults = false;
+            }
 
-              $scope.books = $scope.books.concat(data);
-              $scope.loading = false;
-              page++;
-              moreToLoad = (data.length === limit);
-            });
+            $scope.books = $scope.books.concat(books);
+            $scope.loading = false;
+            page++;
+            moreToLoad = (books.length === limit);
+          });
         };
 
         var initPagination = function() {
