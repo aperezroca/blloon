@@ -11,6 +11,7 @@ angular.module('blloonApp')
   .controller('BookDetailCtrl', ['$scope', '$routeParams', '$sce',
       '$location', 'bookService', 'book',
       function ($scope, $routeParams, $sce, $location, bookService, book) {
+        var BLLOON_BOOKS_URL = 'http://www.blloon.com/books/';
 
         // Scope variables
         $scope.book = null;
@@ -23,6 +24,7 @@ angular.module('blloonApp')
         // Private functions
         var loadBook = function() {
           bookService.getById($routeParams.udid, function(book) {
+            book.blloonUrl = BLLOON_BOOKS_URL + $routeParams.udid;
             $scope.book = book;
           });
         };
